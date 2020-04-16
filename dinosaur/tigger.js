@@ -4,7 +4,7 @@ class Tigger {
     this.x = 50;
     this.y = height - this.r;
     this.vy = 0;
-    this.gravity = 2;
+    this.gravity = 1;
 
   }
   jump() {
@@ -18,7 +18,7 @@ hits(stump){
   let y1 = this.y + this.r *0.5;
   let x2 = stump.x + stump.r *0.5;
   let y2 = stump.y + stump.r *0.5;
-  return collideCircleCircle(x1, y1, this.r, x2, y2, stump.r, stump.r);
+  return  collidePointPoint(x1, y1, x2, y2, 60);
 }
 
   move() {
@@ -29,7 +29,6 @@ hits(stump){
   show() {
     image(tImg, this.x, this.y, this.r, this.r);
     fill(255, 50);
-    ellipseMode(CORNER);
-    ellipse(this.x, this.y, this.r, this.r);
+    ellipseMode(CENTER);
   }
 }

@@ -11,9 +11,8 @@ class Stump {
   }
 
   show() {
-    image(sImg, this.x, this.y, this.r, this.r);
-    fill(255, 50);         
-    ellipseMode(CORNER);
-    ellipse(this.x, this.y, this.r, this.r);
+    image(sImg, this.x , this.y, this.r, this.r);
+    fill(255, 50);
+    ellipseMode(CENTER);
   }
 }
