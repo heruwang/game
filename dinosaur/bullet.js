@@ -1,4 +1,4 @@
-class Stump {
+class Bullet {
 
   constructor() {
     this.r = 100;
@@ -11,7 +11,7 @@ class Stump {
   }
 
   show() {
-    image(sImg, this.x , this.y, this.r, this.r);
+    image(bImg, this.x , this.y, this.r, this.r);
     fill(255, 50);
     ellipseMode(CENTER);
   }

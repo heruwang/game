@@ -1,10 +1,11 @@
 let tigger;
 let tImg;
+let dImg;
 let bImg;
-let sImg;
-let stumps = [];
+let bullets = [];
 let soundClassifier;
 let state = 'splash';
+let score = 0;
 
 function preload() {
   const options = {
@@ -12,8 +13,8 @@ function preload() {
   };
   soundClassifier = ml5.soundClassifier('SpeechCommands18w', options);
   tImg = loadImage("assets/tigger.png");
-  bImg = loadImage("assets/disney_forest.jpg");
-  sImg = loadImage("assets/tree_stump.png");
+  dImg = loadImage("assets/disney_forest.jpg");
+  bImg = loadImage("assets/bullet.png");
 }
 
 function setup() {
@@ -37,16 +38,19 @@ function gotCommand(error, results) {
 
 function gamePlay() {
   if (random(1) < 0.01) {
-    stumps.push(new Stump());
+    bullets.push(new Bullet());
   }
 
-  background(bImg);
-  for (let s of stumps) {
-    s.move();
-    s.show();
-    if (tigger.hits(s)) {
+  background(dImg);
+  for (let b of bullets) {
+    b.move();
+    b.show();
+    if (tigger.hits(b)) {
       console.log('game over');
       noLoop();
+    }else if(b.x === 0){
+      score++;
+      console.log("score =" + score );
     }
   }
 
@@ -57,7 +61,7 @@ function gamePlay() {
 
 
 function splashScreen() {
-  background(bImg);
+  background(dImg);
   fill(0);
   strokeWeight(100);
   text('click to start', width / 2, height / 2);

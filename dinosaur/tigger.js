@@ -13,11 +13,11 @@ class Tigger {
     }
   }
 
-hits(stump){
+hits(bullet){
   let x1 = this.x + this.r * 0.5;
   let y1 = this.y + this.r *0.5;
-  let x2 = stump.x + stump.r *0.5;
-  let y2 = stump.y + stump.r *0.5;
+  let x2 = bullet.x + bullet.r *0.5;
+  let y2 = bullet.y + bullet.r *0.5;
   return  collidePointPoint(x1, y1, x2, y2, 60);
 }
 
